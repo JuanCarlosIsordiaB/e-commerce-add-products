@@ -1,5 +1,7 @@
 import { Layout } from '../components/Layout';
+import { Producto } from '../components/Producto';
 import useAppContext from '../store/store';
+
 
 export const Index = () => {
 
@@ -7,11 +9,11 @@ export const Index = () => {
 
   return (
     <Layout>
-      {
-        store.items.map((item) => (
-          <h1>{item.title}</h1>
-        ))
-      }
+      <div className="product-container">
+        {store.items.map((item, index) => (
+          <Producto item={item} key={index} />
+        ))}
+      </div>
     </Layout>
-  )
-}
+  );
+};
